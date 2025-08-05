@@ -1,0 +1,39 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Structure du Projet Cap-Table
+
+## Vue d'ensemble
+Ce projet est une application Next.js 15 pour la gestion de table de capitalisation (cap-table) avec authentification et rôles utilisateur.
+
+## Architecture principale
+
+### Point d'entrée
+- [app/page.tsx](mdc:app/page.tsx) - Page d'accueil avec redirection vers /login
+- [app/layout.tsx](mdc:app/layout.tsx) - Layout principal de l'application
+
+### Authentification et autorisation
+- [lib/auth.ts](mdc:lib/auth.ts) - Logique d'authentification
+- [context/AuthContext.tsx](mdc:context/AuthContext.tsx) - Contexte React pour l'authentification
+- [middleware.ts](mdc:middleware.ts) - Middleware Next.js pour la protection des routes
+
+### Routes protégées
+- [app/admin/dashboard/page.tsx](mdc:app/admin/dashboard/page.tsx) - Dashboard administrateur
+- [app/shareholder/dashboard/page.tsx](mdc:app/shareholder/dashboard/page.tsx) - Dashboard actionnaire
+- [app/login/page.tsx](mdc:app/login/page.tsx) - Page de connexion
+
+### Composants réutilisables
+- [components/AddShareholderModal.tsx](mdc:components/AddShareholderModal.tsx) - Modal pour ajouter un actionnaire
+- [components/IssueSharesModal.tsx](mdc:components/IssueSharesModal.tsx) - Modal pour émettre des actions
+
+### Utilitaires et données
+- [utils/storage.ts](mdc:utils/storage.ts) - Utilitaires de stockage local
+- [mocks/shareholders.ts](mdc:mocks/shareholders.ts) - Données mockées des actionnaires
+- [mocks/issuances.ts](mdc:mocks/issuances.ts) - Données mockées des émissions
+
+## Configuration
+- [package.json](mdc:package.json) - Dépendances et scripts
+- [tsconfig.json](mdc:tsconfig.json) - Configuration TypeScript
+- [next.config.ts](mdc:next.config.ts) - Configuration Next.js

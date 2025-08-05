@@ -1,0 +1,48 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Guide de Développement
+
+## Technologies utilisées
+- **Next.js 15** avec App Router
+- **React 19** avec hooks modernes
+- **TypeScript** pour le typage statique
+- **Tailwind CSS 4** pour le styling
+- **ESLint** pour la qualité du code
+
+## Conventions de code
+
+### Structure des composants
+- Utiliser des composants fonctionnels avec hooks
+- Préférer les composants TypeScript (.tsx)
+- Organiser les imports : React, bibliothèques externes, composants internes, utilitaires
+
+### Gestion de l'état
+- Utiliser [AuthContext.tsx](mdc:context/AuthContext.tsx) pour l'état global d'authentification
+- Préférer les hooks locaux pour l'état des composants
+- Éviter les props drilling en utilisant le contexte
+
+### Authentification
+- Toutes les routes protégées doivent être dans [middleware.ts](mdc:middleware.ts)
+- Utiliser les fonctions de [lib/auth.ts](mdc:lib/auth.ts) pour la logique d'auth
+- Stocker les tokens dans le localStorage via [utils/storage.ts](mdc:utils/storage.ts)
+
+### Styling
+- Utiliser Tailwind CSS pour tous les styles
+- Créer des classes utilitaires personnalisées si nécessaire
+- Respecter le design system existant
+
+### Données mockées
+- Utiliser [mocks/shareholders.ts](mdc:mocks/shareholders.ts) pour les données d'actionnaires
+- Utiliser [mocks/issuances.ts](mdc:mocks/issuances.ts) pour les données d'émissions
+- Maintenir la cohérence des types TypeScript
+
+## Scripts de développement
+```bash
+npm run dev    # Démarrage en mode développement
+npm run build  # Build de production
+npm run start  # Démarrage en production
+npm run lint   # Vérification ESLint
+```

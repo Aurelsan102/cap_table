@@ -1,0 +1,48 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Patterns de Composants
+
+## Modals
+Le projet utilise des modals pour les actions principales :
+
+### AddShareholderModal
+- [components/AddShareholderModal.tsx](mdc:components/AddShareholderModal.tsx)
+- Utilisé pour ajouter de nouveaux actionnaires
+- Gère la validation des données d'entrée
+- Intègre avec les données mockées de [mocks/shareholders.ts](mdc:mocks/shareholders.ts)
+
+### IssueSharesModal
+- [components/IssueSharesModal.tsx](mdc:components/IssueSharesModal.tsx)
+- Utilisé pour émettre de nouvelles actions
+- Gère les calculs de dilution
+- Intègre avec les données de [mocks/issuances.ts](mdc:mocks/issuances.ts)
+
+## Dashboards
+
+### Dashboard Administrateur
+- [app/admin/dashboard/page.tsx](mdc:app/admin/dashboard/page.tsx)
+- Accès complet à toutes les fonctionnalités
+- Gestion des actionnaires et émissions
+- Vue d'ensemble de la cap-table
+
+### Dashboard Actionnaire
+- [app/shareholder/dashboard/page.tsx](mdc:app/shareholder/dashboard/page.tsx)
+- Vue limitée aux informations de l'actionnaire connecté
+- Affichage des participations personnelles
+- Historique des transactions
+
+## Authentification
+- [app/login/page.tsx](mdc:app/login/page.tsx) - Interface de connexion
+- [context/AuthContext.tsx](mdc:context/AuthContext.tsx) - Gestion de l'état d'authentification
+- [lib/auth.ts](mdc:lib/auth.ts) - Logique d'authentification
+- [utils/storage.ts](mdc:utils/storage.ts) - Persistance des données d'authentification
+
+## Patterns communs
+- Utilisation de Tailwind CSS pour le styling
+- Gestion d'état avec React hooks
+- Validation côté client
+- Messages d'erreur et de succès
+- Loading states pour les actions asynchrones

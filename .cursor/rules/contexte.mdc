@@ -1,0 +1,76 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Je souhaite créer la partie Front-End d’une application de gestion de cap table en utilisant **Next.js**.
+
+# ⚙️ Stack technique imposée :
+
+* **Framework** : Next.js (dernier stable avec App Router ou Pages Router si plus simple)
+* **UI** : Shadcn UI
+* **Mock API** : simuler les requêtes via  MSW ou des mocks dans des fichiers JS/TS
+* **Graphique** : Recharts ou Chart.js pour visualiser la répartition des actions
+* **HTTP client** : Axios&#x20;
+* **Tests** : Jest + React Testing Library pour le formulaire d’émission
+
+# 👥 Utilisateurs :
+
+* **Admin** : peut voir tous les actionnaires, émettre des actions, ajouter des actionnaires
+* **Shareholder** : peut voir ses actions et téléchargements de certificats simulés
+
+# 📁 Pages et composants à construire :
+
+1. `/login` → **LoginPage**
+
+   * Formulaire simple avec rôle (admin/shareholder) + email
+   * Stockage du rôle dans `localStorage` ou `sessionStorage`
+
+2. `/admin/dashboard` → **AdminDashboard**
+
+   * Liste des actionnaires mockés
+   * Graphique en camembert des parts
+   * Boutons pour :
+
+     * Ajouter un actionnaire → `AddShareholderModal`
+     * Émettre des actions → `IssueSharesModal`
+
+3. `/shareholder/dashboard` → **ShareholderDashboard**
+
+   * Infos du shareholder connecté
+   * Total des parts possédées
+   * Liste des émissions (mockées) avec bouton de téléchargement
+
+# 📦 Composants modaux :
+
+* `AddShareholderModal` : nom, email
+* `IssueSharesModal` : choix du shareholder, nombre d’actions
+
+# 🧠 Fonctionnalités :
+
+* Auth simple simulée → stocker utilisateur connecté (et son rôle) localement
+* Redirection automatique selon le rôle après login
+* Affichage des données depuis mocks (utiliser useEffect + useState)
+* États de chargement / erreurs
+* Design cohérent avec MUI v5
+* Tests unitaires sur le composant `IssueSharesModal`
+
+# 📊 Modèles de données simulés :
+
+* `Shareholder`: { id, name, email, totalShares }
+* `Issuance`: { id, shareholderId, numberOfShares, date, certificateUrl }
+
+# 📌 Tâches à démarrer immédiatement :
+
+1. Générer la structure Next.js avec routing de base
+2. Créer :
+
+   * `pages/login.tsx`
+   * `pages/admin/dashboard.tsx`
+   * `pages/shareholder/dashboard.tsx`
+3. Mettre en place une fonction `mockLogin()` (avec hardcoded users)
+4. Créer un `auth context` ou `auth hook` simple pour récupérer le rôle
+5. Créer des mocks statiques pour Shareholders et Issuances
+6. Commencer à construire les composants de la vue Admin
+
+Merci de me générer un squelette de projet Next.js avec les premières pages et la logique d’auth simple + navigation conditionnelle.

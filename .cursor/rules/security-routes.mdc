@@ -1,0 +1,42 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Sécurité et Gestion des Routes
+
+## Protection des routes
+Le middleware Next.js dans [middleware.ts](mdc:middleware.ts) gère la protection des routes :
+
+### Routes publiques
+- `/` - Page d'accueil (redirection vers /login)
+- `/login` - Page de connexion
+
+### Routes protégées
+- `/admin/*` - Accès administrateur uniquement
+- `/shareholder/*` - Accès actionnaire uniquement
+
+## Authentification
+- [lib/auth.ts](mdc:lib/auth.ts) contient la logique d'authentification
+- [context/AuthContext.tsx](mdc:context/AuthContext.tsx) gère l'état d'authentification global
+- [utils/storage.ts](mdc:utils/storage.ts) gère la persistance des tokens
+
+## Rôles utilisateur
+
+### Administrateur
+- Accès complet à toutes les fonctionnalités
+- Gestion des actionnaires via [AddShareholderModal.tsx](mdc:components/AddShareholderModal.tsx)
+- Émission d'actions via [IssueSharesModal.tsx](mdc:components/IssueSharesModal.tsx)
+- Vue d'ensemble de la cap-table
+
+### Actionnaire
+- Accès limité aux informations personnelles
+- Consultation de ses participations
+- Historique de ses transactions
+
+## Bonnes pratiques de sécurité
+- Validation des données côté client ET serveur
+- Protection CSRF pour les formulaires
+- Sanitisation des entrées utilisateur
+- Gestion sécurisée des tokens d'authentification
+- Logout automatique en cas d'expiration du token

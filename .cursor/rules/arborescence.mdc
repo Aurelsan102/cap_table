@@ -1,0 +1,33 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+cap-table-app/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx (redirecte vers /login)
+│   ├── login/
+│   │   └── page.tsx
+│   ├── admin/
+│   │   └── dashboard/
+│   │       └── page.tsx
+│   ├── shareholder/
+│   │   └── dashboard/
+│   │       └── page.tsx
+├── components/
+│   ├── AddShareholderModal.tsx
+│   ├── IssueSharesModal.tsx
+├── lib/
+│   └── auth.ts
+├── mocks/
+│   ├── shareholders.ts
+│   └── issuances.ts
+├── context/
+│   └── AuthContext.tsx
+├── utils/
+│   └── storage.ts
+├── middleware.ts
+├── package.json
+├── tsconfig.json
+└── README.md

@@ -1,0 +1,45 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Gestion des Données
+
+## Données mockées
+Le projet utilise des données mockées pour le développement :
+
+### Actionnaires
+- [mocks/shareholders.ts](mdc:mocks/shareholders.ts) - Données des actionnaires
+- Structure : nom, email, nombre d'actions, pourcentage de participation
+- Utilisé par [AddShareholderModal.tsx](mdc:components/AddShareholderModal.tsx)
+
+### Émissions d'actions
+- [mocks/issuances.ts](mdc:mocks/issuances.ts) - Données des émissions
+- Structure : date, nombre d'actions, prix, actionnaire bénéficiaire
+- Utilisé par [IssueSharesModal.tsx](mdc:components/IssueSharesModal.tsx)
+
+## Calculs de cap-table
+- Calcul de la dilution lors de nouvelles émissions
+- Mise à jour des pourcentages de participation
+- Historique des transactions
+
+## Persistance des données
+- [utils/storage.ts](mdc:utils/storage.ts) - Gestion du localStorage
+- Stockage des tokens d'authentification
+- Cache des données utilisateur
+
+## Types TypeScript
+- Définir des interfaces pour tous les objets de données
+- Validation des types à la compilation
+- Cohérence entre les mocks et les composants
+
+## État de l'application
+- [AuthContext.tsx](mdc:context/AuthContext.tsx) - État global d'authentification
+- État local des composants avec React hooks
+- Synchronisation avec les données mockées
+
+## Bonnes pratiques
+- Toujours valider les données avant traitement
+- Gérer les cas d'erreur et les états de chargement
+- Maintenir la cohérence des données entre les composants
+- Utiliser des clés uniques pour les listes React
