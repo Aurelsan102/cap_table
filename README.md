@@ -13,6 +13,11 @@ Une application Next.js moderne pour la gestion de table de capitalisation (cap-
 - **Jest + React Testing Library** pour les tests
 - **Axios** pour les requêtes HTTP (préparé pour l'API)
 
+## IA pour le développement
+
+- **ChatGPT** pour le brainstorming
+- **Cursor AI** pour le développement
+
 ## 👥 Fonctionnalités
 
 ### Authentification
@@ -41,32 +46,49 @@ Une application Next.js moderne pour la gestion de table de capitalisation (cap-
 ## 📁 Structure du projet
 
 ```
-cap-table-app/
-├── app/
-│   ├── layout.tsx              # Layout principal avec AuthProvider
-│   ├── page.tsx                # Page d'accueil avec redirection
-│   ├── login/page.tsx          # Page de connexion
-│   ├── admin/dashboard/        # Dashboard administrateur
-│   └── shareholder/dashboard/  # Dashboard actionnaire
-├── components/
-│   ├── ui/                     # Composants Shadcn UI
-│   ├── AddShareholderModal.tsx # Modal d'ajout d'actionnaire
-│   └── IssueSharesModal.tsx    # Modal d'émission d'actions
-├── context/
+captable/
+├── app/                        # Dossier principal de l'application Next.js
+│   ├── layout.tsx              # Layout principal de l'application
+│   ├── page.tsx                # Page d'accueil
+│   ├── dashboard/              # Dashboard
+│   │   ├── admin/              # Dashboard administrateur
+│   │   └── shareholder/        # Dashboard actionnaire
+│   ├── login/                  # Authentification
+│   │   └── page.tsx            # Page de connexion
+│   └── globals.css             # Styles globaux
+│
+├── components/                 # Composants React
+│   ├── ui/                     # Composants UI Shadcn
+│   └── (autres composants personnalisés)
+│
+├── context/                    # Contextes React
 │   └── AuthContext.tsx         # Contexte d'authentification
-├── lib/
+│
+├── hooks/                      # Hooks personnalisés
+│   └── use-mobile.ts           # Détection des appareils mobiles
+│
+├── lib/                        # Bibliothèques et outils
 │   ├── auth.ts                 # Logique d'authentification
 │   └── utils.ts                # Utilitaires
-├── mocks/
-│   ├── shareholders.ts         # Données mockées des actionnaires
-│   ├── issuances.ts            # Données mockées des émissions
-│   └── users.ts                # Données mockées des utilisateurs
-├── types/
-│   └── index.ts                # Types TypeScript
-├── utils/
-│   └── storage.ts              # Gestion du localStorage
-└── __tests__/
-    └── IssueSharesModal.test.tsx # Tests unitaires
+│
+├── mocks/                      # Données de test
+│   ├── issuances.ts            # Données des émissions
+│   ├── shareholders.ts         # Données des actionnaires
+│   └── users.ts                # Données des utilisateurs
+│
+├── utils/                      # Utilitaires
+│   └── storage.ts              # Stockage sécurisé
+│
+├── __tests__/                  # Tests unitaires
+│   └── IssueSharesModal.test.tsx     # Tests unitaires
+│
+├── .gitignore                  # Fichiers ignorés par Git
+├── components.json             # Configuration des composants Shadcn
+├── jest.config.js              # Configuration de Jest
+├── jest.setup.js               # Configuration des tests
+├── next.config.js              # Configuration Next.js
+├── package.json                # Dépendances et scripts
+└── README.md                   # Ce fichier
 ```
 
 ## 🛠️ Installation et démarrage
@@ -82,12 +104,14 @@ cd captable
 
 ```bash
 npm install
+pnpm install
 ```
 
 3. **Démarrer en mode développement**
 
 ```bash
 npm run dev
+pnpm dev
 ```
 
 4. **Ouvrir dans le navigateur**
@@ -102,12 +126,14 @@ http://localhost:3000
 
 ```bash
 npm test
+pnpm test
 ```
 
 ### Lancer les tests en mode watch
 
 ```bash
 npm run test:watch
+pnpm run test:watch
 ```
 
 ### Tests disponibles
@@ -122,15 +148,15 @@ npm run test:watch
 ### Administrateur
 
 - **Email:** admin@captable.com
-- **Rôle:** admin
+- **Rôle:** administrateur
 
 ### Actionnaires
 
 - **Email:** jean.dupont@example.com
-- **Rôle:** shareholder
+- **Rôle:** actionnaire
 
 - **Email:** marie.martin@example.com
-- **Rôle:** shareholder
+- **Rôle:** actionnaire
 
 ## 📊 Données mockées
 
@@ -160,10 +186,15 @@ Le projet utilise des données mockées pour le développement :
 
 ```bash
 npm run dev      # Démarrage en mode développement
+pnpm run dev      # Démarrage en mode développement
 npm run build    # Build de production
+pnpm run build    # Build de production
 npm run start    # Démarrage en production
+pnpm run start    # Démarrage en production
 npm run lint     # Vérification ESLint
+pnpm run lint     # Vérification ESLint
 npm test         # Lancement des tests
+pnpm test         # Lancement des tests
 ```
 
 ## 🚀 Déploiement
@@ -179,15 +210,3 @@ L'application est prête pour le déploiement sur Vercel ou toute autre platefor
 - [ ] Gestion des droits d'action
 - [ ] Historique des transactions plus détaillé
 - [ ] Graphiques avancés et analytics
-
-## 🤝 Contribution
-
-1. Fork le projet
-2. Créer une branche feature (`git checkout -b feature/AmazingFeature`)
-3. Commit les changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
-
-## 📄 Licence
-
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
