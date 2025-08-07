@@ -218,4 +218,5 @@ L'application est prête pour le déploiement sur Vercel ou toute autre platefor
 - [ ] Gestion des droits d'action
 - [ ] Historique des transactions plus détaillé
 - [ ] Graphiques avancés et analytics
+
 ````
