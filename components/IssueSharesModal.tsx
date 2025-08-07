@@ -78,7 +78,10 @@ export const IssueSharesModal: React.FC<IssueSharesModalProps> = ({
       onSuccess(newIssuance[newIssuance.length - 1]);
       handleClose();
     } catch (error) {
-      setError("Erreur lors de l'émission d'actions");
+      setError(
+        "Erreur lors de l'émission d'actions" +
+          (error instanceof Error ? `: ${error.message}` : "")
+      );
     } finally {
       setIsLoading(false);
     }
@@ -122,7 +125,7 @@ export const IssueSharesModal: React.FC<IssueSharesModalProps> = ({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="shares">Nombre d'actions à émettre</Label>
+            <Label htmlFor="shares">Nombre d&apos;actions à émettre</Label>
             <Input
               id="shares"
               type="number"

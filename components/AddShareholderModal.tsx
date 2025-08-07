@@ -68,7 +68,10 @@ export const AddShareholderModal: React.FC<AddShareholderModalProps> = ({
       onSuccess(newShareholder[newShareholder.length - 1]);
       handleClose();
     } catch (error) {
-      setError("Erreur lors de l'ajout de l'actionnaire");
+      setError(
+        "Erreur lors de l'ajout de l'actionnaire" +
+          (error instanceof Error ? `: ${error.message}` : "")
+      );
     } finally {
       setIsLoading(false);
     }
@@ -117,7 +120,7 @@ export const AddShareholderModal: React.FC<AddShareholderModalProps> = ({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="shares">Nombre d'actions</Label>
+            <Label htmlFor="shares">Nombre d&apos;actions</Label>
             <Input
               id="shares"
               type="number"

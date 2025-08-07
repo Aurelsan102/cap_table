@@ -32,7 +32,7 @@ const COLORS = [
 
 export default function AdminDashboard() {
   const router = useRouter();
-  const { user, login, logout, isLoading } = useAuth();
+  const { user, logout, isLoading } = useAuth();
   const [shareholders, setShareholders] =
     useState<Shareholder[]>(mockShareholders);
   const [issuances, setIssuances] = useState<Issuance[]>(mockIssuances);
