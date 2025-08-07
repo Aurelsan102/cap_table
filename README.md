@@ -19,32 +19,31 @@ Une application Next.js moderne pour la gestion de table de capitalisation (cap-
 ## 🛠️ Installation et démarrage LOCAL
 
 1. **Cloner le projet**
+
    ```bash
    git clone <repository-url>
    cd captable
    ```
 
-````
 2. **Installer les dépendances**
-   ```bash
+
+```bash
 pnpm install
 # ou
 npm install
-````
+```
 
 3. **Démarrer le serveur de développement**
-   ```bash
-   pnpm dev
-   ```
 
+```bash
+pnpm dev
 # ou
-
 npm run dev
-
 ```
+
 4. **Accéder à l’application**
-```
 
+```
 http://localhost:3000
 
 ```
@@ -156,7 +155,7 @@ captable/
 ├── package.json # Dépendances et scripts
 └── README.md # Ce fichier
 
-````
+```
 
 ## 🔐 Comptes de test
 
@@ -189,7 +188,6 @@ Le projet utilise des données mockées pour le développement :
 - Prix et dates d'émission
 - Certificats simulés pour téléchargement
 
-
 ## 🔧 Scripts disponibles
 
 ```bash
@@ -218,5 +216,3 @@ L'application est prête pour le déploiement sur Vercel ou toute autre platefor
 - [ ] Gestion des droits d'action
 - [ ] Historique des transactions plus détaillé
 - [ ] Graphiques avancés et analytics
-
-````
